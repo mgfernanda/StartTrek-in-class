@@ -96,12 +96,13 @@ print(allCaptainsAlpha.map{$0.name})
 Group 2
 */
 // Q6: Create an array of officers serving as first officers who are also Vulcan
-let VulCanFirst = firstOfficers.keys.filter{vulcanOfficers.contains($0)}
-print(VulCanFirst)
+let VulCanFirst: [Officer] = firstOfficers.map{Officer(name: $0, ship: $1)}.filter{vulcanOfficers.contains($0.name)}
+print(VulCanFirst.map{$0.name})
 
 
 // Q7: How many these Vulcan first officers have names shorter than 5 characters?
-
+let VulcanCount = VulCanFirst.filter{$0.name.count < 5}.count
+print(VulcanCount)
 
 
 
